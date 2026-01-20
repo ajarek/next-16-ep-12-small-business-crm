@@ -4,6 +4,7 @@ import "./globals.css"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar"
 import { ThemeProvider } from "next-themes"
+import { Toaster } from "sonner"
 
 const raleway = Raleway({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -39,11 +40,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SidebarProvider>
+            
             <AppSidebar />
-            <main>
               <SidebarTrigger />
               {children}
-            </main>
+              <Toaster />
+          
           </SidebarProvider>
         </ThemeProvider>
       </body>

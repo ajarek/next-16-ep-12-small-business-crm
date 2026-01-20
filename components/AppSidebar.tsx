@@ -7,12 +7,14 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { ModeToggle } from "./ModeToggle"
 import Link from "next/link"
+import Logo from "./Logo"
  
 // Menu items.
 const items = [
@@ -56,6 +58,9 @@ const items = [
 export function AppSidebar() {
   return (
      <Sidebar>
+       <SidebarHeader>
+        <Logo />
+       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Navigation</SidebarGroupLabel>
