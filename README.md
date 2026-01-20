@@ -13,6 +13,40 @@ pnpm dev
 # or
 bun dev
 ```
+Kluczowe funkcje systemu CRM dla małych firm
+Scentralizowana baza danych klientów
+Przechowuj i uzyskuj dostęp do wszystkich informacji o klientach, danych kontaktowych i historii interakcji w jednym, uporządkowanym miejscu. Szybko wyszukuj i pobieraj dane klientów, kiedy tylko ich potrzebujesz.
+
+Zarządzanie lejkiem sprzedaży
+Śledź transakcje od pierwszego kontaktu do zamknięcia dzięki wizualnym etapom lejka. Monitoruj postępy, identyfikuj wąskie gardła i prognozuj przychody dzięki analizom sprzedaży w czasie rzeczywistym.
+
+Przypomnienia o zadaniach i działaniach następczych
+Nigdy nie przegap ważnego działania następczego dzięki automatycznym przypomnieniom i zarządzaniu zadaniami. Planuj rozmowy telefoniczne, spotkania i e-maile, aby być na bieżąco z każdą relacją z klientem.
+
+Historia komunikacji z klientem
+Przeglądaj kompletne rejestry komunikacji, w tym e-maile, połączenia i notatki dla każdego klienta. Upewnij się, że Twój zespół ma pełny kontekst dla każdej interakcji.
+
+Niestandardowe raporty i analizy
+Generuj szczegółowe raporty dotyczące wyników sprzedaży, trendów wśród klientów i produktywności zespołu. Podejmuj decyzje oparte na danych, aby skutecznie rozwijać swoją firmę.
+
+Dostęp mobilny
+Zarządzaj relacjami z klientami z dowolnego miejsca dzięki dostępowi mobilnemu. Aktualizuj rekordy, sprawdzaj zadania i reaguj na szanse sprzedaży z dowolnego miejsca.
+
+Idealny dla / Przykłady zastosowań systemu CRM dla małych firm
+Zespoły sprzedaży śledzą interakcje z klientami i działania następcze w wielu punktach styku
+
+Właściciele małych firm zarządzają danymi kontaktowymi klientów i historią zakupów w jednym miejscu
+
+Dostawcy usług umawiają spotkania i wysyłają automatyczne przypomnienia do klientów
+
+Kierownicy sklepów detalicznych analizują wzorce zakupowe klientów w celu personalizacji kampanii marketingowych
+
+Freelancerzy organizują harmonogramy projektów i komunikację z klientami dla wielu kont
+
+Właściciele lokalnych firm generują raporty sprzedaży i prognozują trendy przychodów
+
+Zrzuty ekranu
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
