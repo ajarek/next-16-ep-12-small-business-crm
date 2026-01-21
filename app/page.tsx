@@ -3,7 +3,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -89,7 +88,7 @@ export default function Dashboard() {
           business.
         </p>
       </div>
-      <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4  border-2 border-primary p-4'>
+      <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4  border rounded-md border-primary p-4'>
         {cardsData1.map((card) => (
           <Card key={card.title} className='mx-auto w-full '>
             <CardHeader className='flex items-center justify-between'>
@@ -105,7 +104,7 @@ export default function Dashboard() {
           </Card>
         ))}
       </div>
-      <div className='w-full grid grid-cols-1 md:grid-cols-2  gap-4  border-2 border-primary p-4'>
+      <div className='w-full grid grid-cols-1 md:grid-cols-2  gap-4  border rounded-md border-primary p-4'>
         {cardsData2.map((card) => (
           <Card key={card.title} className='mx-auto w-full '>
             <CardHeader className='flex flex-col items-start gap-2'>
@@ -116,7 +115,7 @@ export default function Dashboard() {
           </Card>
         ))}
       </div>
-      <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  border-2 border-primary p-4'>
+      <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  border rounded-md border-primary p-4'>
         {cardsData3.map((card) => (
           <Card key={card.title} className='mx-auto w-full '>
             <CardHeader className='flex items-center gap-2'>
