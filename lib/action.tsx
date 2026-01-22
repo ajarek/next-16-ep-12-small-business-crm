@@ -2,7 +2,8 @@
 
 import connectToDb from "./connectToDb"
 import type { Contact as ContactType } from "@/types/typeContact"
-import { Contact } from "./models"
+import type { Deal as DealType } from "@/types/typeDeal"
+import { Contact, Deal } from "./models"
 import { revalidatePath } from "next/cache"
 
 import { redirect } from "next/navigation"
@@ -55,4 +56,47 @@ export const removeContact = async (Id: string) => {
     console.log(err)
   }
   redirect("/contacts")
+}
+
+export const addDeal = async (formData: DealType) => {
+  const { title, contact, value, stage, expectedCloseDate, description } =
+    formData
+  try {
+    await connectToDb()
+    const newDeal = new Deal({
+      title,
+      contact,
+      value,
+      stage,
+      expectedCloseDate,
+      description,
+    })
+    await newDeal.save()
+    console.log("saved" + newDeal)
+    revalidatePath("/deals")
+  } catch (err) {
+    console.log(err)
+  }
+  redirect("/deals")
+}
+
+export const getDealsAll = async () => {
+  try {
+    await connectToDb()
+    const deals = await Deal.find()
+    return JSON.parse(JSON.stringify(deals))
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export const removeDeal = async (Id: string) => {
+  try {
+    await connectToDb()
+    await Deal.deleteOne({ _id: Id })
+    revalidatePath("/deals")
+  } catch (err) {
+    console.log(err)
+  }
+  redirect("/deals")
 }
