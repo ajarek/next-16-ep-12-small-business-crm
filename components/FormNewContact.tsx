@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { toast } from "sonner"
+import { addContact } from "@/lib/action"
 
 const formSchema = z.object({
   name: z
@@ -58,7 +59,7 @@ export function NewContactForm() {
     },
   })
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
+  async function onSubmit(data: z.infer<typeof formSchema>) {
     toast.success("You submitted the following values:", {
       description: (
         <pre className='bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4'>
@@ -73,6 +74,7 @@ export function NewContactForm() {
         "--border-radius": "calc(var(--radius)  + 4px)",
       } as React.CSSProperties,
     })
+    await addContact(data)
   }
 
   return (
@@ -247,7 +249,7 @@ export function NewContactForm() {
             form='form-rhf-select'
             className='ml-auto px-4 cursor-pointer'
           >
-            Search
+            Add Contact
           </Button>
         </Field>
       </CardFooter>
