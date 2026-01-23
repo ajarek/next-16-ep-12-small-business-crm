@@ -1,8 +1,7 @@
 "use client"
 
-
 import { Input } from "./ui/input"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter, useSearchParams, usePathname } from "next/navigation"
 import { Search } from "lucide-react"
 
 interface SearchProps {
@@ -12,6 +11,7 @@ interface SearchProps {
 const FormSearchFilter = ({ query }: SearchProps) => {
   const searchParams = useSearchParams()
   const { replace } = useRouter()
+  const pathname = usePathname()
 
   const handleSearch = (term: string) => {
     const params = new URLSearchParams(searchParams)
@@ -22,7 +22,7 @@ const FormSearchFilter = ({ query }: SearchProps) => {
       params.delete(`${query}`)
     }
     try {
-      replace(`/contacts?${params.toString()}`)
+      replace(`${pathname}?${params.toString()}`)
     } catch (error) {
       console.error("Failed to replace URL parameters:", error)
     }

@@ -5,7 +5,6 @@ import type { Contact as ContactType } from "@/types/typeContact"
 import type { Deal as DealType } from "@/types/typeDeal"
 import { Contact, Deal } from "./models"
 import { revalidatePath } from "next/cache"
-
 import { redirect } from "next/navigation"
 
 export const addContact = async (formData: ContactType) => {
@@ -28,15 +27,7 @@ export const addContact = async (formData: ContactType) => {
   redirect("/contacts")
 }
 
-// export const getShoppingList = async (username: string) => {
-//   try {
-//     await connectToDb()
-//     const shoppingList = await ShoppingList.find({ username })
-//     return JSON.parse(JSON.stringify(shoppingList))
-//   } catch (err) {
-//     console.log(err)
-//   }
-// }
+
 export const getContactsAll = async () => {
   try {
     await connectToDb()
