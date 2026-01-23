@@ -1,5 +1,13 @@
-import { Calendar, ChartColumn, Handshake, Home, Inbox, LayoutDashboard, Search, Settings, SquareCheck, Users } from "lucide-react"
- 
+import {
+  Calendar,
+  ChartColumn,
+  Handshake,
+  LayoutDashboard,
+  Settings,
+  SquareCheck,
+  Users,
+} from "lucide-react"
+
 import {
   Sidebar,
   SidebarContent,
@@ -15,7 +23,7 @@ import {
 import { ModeToggle } from "./ModeToggle"
 import Link from "next/link"
 import Logo from "./Logo"
- 
+
 // Menu items.
 const items = [
   {
@@ -31,7 +39,7 @@ const items = [
   {
     title: "Deals",
     url: "/deals",
-    icon:Handshake ,
+    icon: Handshake,
   },
   {
     title: "Activities",
@@ -54,13 +62,13 @@ const items = [
     icon: Settings,
   },
 ]
- 
+
 export function AppSidebar() {
   return (
-     <Sidebar>
-       <SidebarHeader>
+    <Sidebar>
+      <SidebarHeader>
         <Logo />
-       </SidebarHeader>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Navigation</SidebarGroupLabel>
@@ -69,7 +77,7 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <Link href={item.url} className="">
+                    <Link href={item.url} className=''>
                       <item.icon />
                       <span>{item.title}</span>
                     </Link>
@@ -80,16 +88,16 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-       <SidebarFooter>
+      <SidebarFooter>
         <SidebarMenu>
-          <SidebarMenuItem className="flex flex-row items-center justify-between p-4">
+          <SidebarMenuItem className='flex flex-row items-center justify-between p-4'>
             <span>Theme</span>
             <SidebarMenuButton asChild>
               <ModeToggle />
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
-       </SidebarFooter>
+      </SidebarFooter>
     </Sidebar>
   )
 }

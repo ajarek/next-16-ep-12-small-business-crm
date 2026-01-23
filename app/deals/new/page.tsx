@@ -1,4 +1,4 @@
-import  {NewDealForm}  from "@/components/FormNewDeal"
+import { NewDealForm } from "@/components/FormNewDeal"
 
 const NewDeal = () => {
   return (

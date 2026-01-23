@@ -1,16 +1,16 @@
-'use client'
+"use client"
 import { Button } from "./ui/button"
-import { Trash2, X } from "lucide-react"
+import { Trash2 } from "lucide-react"
 import { removeContact } from "@/lib/action"
 import { toast } from "sonner"
 
 const ButtonDeleteContact = ({ id }: { id: string }) => {
-    const handleRemoveContact = async () => {
-        await removeContact(id)
-        toast("Contact removed")
-    }
+  const handleRemoveContact = async () => {
+    await removeContact(id)
+    toast("Contact removed")
+  }
   return (
-     <Button
+    <Button
       variant='outline'
       size='icon'
       className={`cursor-pointer  hover:text-red-500  transition-colors duration-200`}

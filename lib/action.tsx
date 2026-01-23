@@ -27,7 +27,6 @@ export const addContact = async (formData: ContactType) => {
   redirect("/contacts")
 }
 
-
 export const getContactsAll = async () => {
   try {
     await connectToDb()

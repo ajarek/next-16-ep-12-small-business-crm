@@ -98,7 +98,7 @@ export default function Dashboard() {
               </span>
             </CardHeader>
             <CardContent>
-              <span className="text-xl">{card.value}</span>
+              <span className='text-xl'>{card.value}</span>
               <CardDescription>{card.description}</CardDescription>
             </CardContent>
           </Card>
