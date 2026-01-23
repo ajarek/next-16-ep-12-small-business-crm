@@ -1,4 +1,6 @@
-import mongoose from "mongoose"
+import mongoose, { Model } from "mongoose"
+import { IContact } from "@/types/typeContact"
+import { IDeal } from "@/types/typeDeal"
 
 const contactSchema = new mongoose.Schema(
   {
@@ -30,5 +32,8 @@ if (mongoose.models?.Deal) {
   delete mongoose.models.Deal
 }
 
-export const Contact = mongoose.model("Contact", contactSchema)
-export const Deal = mongoose.model("Deal", dealSchema)
+export const Contact: Model<IContact> = mongoose.model<IContact>(
+  "Contact",
+  contactSchema,
+)
+export const Deal: Model<IDeal> = mongoose.model<IDeal>("Deal", dealSchema)

@@ -22,6 +22,7 @@ import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { toast } from "sonner"
 import { addDeal } from "@/lib/action"
+import { DealFormData } from "@/types/typeDeal"
 
 const formSchema = z.object({
   title: z
@@ -30,10 +31,7 @@ const formSchema = z.object({
     .max(32, "Title must be at most 32 characters.")
     .trim(),
   contact: z.string().min(3, "Contact name is required.").trim(),
-  value: z.preprocess(
-    (val) => Number(val),
-    z.number().min(1, "Value must be at least 1."),
-  ),
+  value: z.coerce.number().min(1, "Value must be at least 1."),
   stage: z
     .string()
     .min(3, "Stage must be at least 3 characters.")
@@ -50,8 +48,7 @@ const formSchema = z.object({
 })
 
 export function NewDealForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<DealFormData>({
     defaultValues: {
       title: "",
       contact: "",
@@ -62,7 +59,7 @@ export function NewDealForm() {
     },
   })
 
-  async function onSubmit(data: z.infer<typeof formSchema>) {
+  async function onSubmit(data: DealFormData) {
     toast.success("You submitted the following values:", {
       description: (
         <pre className='bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4'>
@@ -77,7 +74,6 @@ export function NewDealForm() {
         "--border-radius": "calc(var(--radius)  + 4px)",
       } as React.CSSProperties,
     })
-    // @ts-expect-error - addDeal expects Deal type which matches data but TS is being strict
     await addDeal(data)
   }
 

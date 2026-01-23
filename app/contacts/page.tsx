@@ -1,9 +1,9 @@
 import FormSearchFilter from "@/components/FormSearchFilter"
 import { Button } from "@/components/ui/button"
 import { getContactsAll } from "@/lib/action"
-import { Plus, User, X } from "lucide-react"
+import { Plus, User } from "lucide-react"
 import Link from "next/link"
-import type { Contact } from "@/types/typeContact"
+import { IContact } from "@/types/typeContact"
 import {
   Table,
   TableBody,
@@ -21,7 +21,7 @@ const Contacts = async ({
   searchParams: { name?: string }
 }) => {
   const { name = "" } = await searchParams
-  const contacts = await getContactsAll()
+  const contacts: IContact[] = await getContactsAll()
   return (
     <div className='w-full flex flex-col items-center justify-start p-4 min-h-screen gap-4'>
       <div className='w-full flex items-center justify-between'>
@@ -72,18 +72,18 @@ const Contacts = async ({
               </TableHeader>
               <TableBody>
                 {contacts
-                  .filter((contact: Contact) =>
+                  .filter((contact: IContact) =>
                     contact.name.toLowerCase().includes(name.toLowerCase()),
                   )
-                  .map((contact: Contact) => (
-                    <TableRow key={contact._id}>
+                  .map((contact: IContact) => (
+                      <TableRow key={contact._id.toString()}>
                       <TableCell>{contact.name}</TableCell>
                       <TableCell>{contact.email}</TableCell>
                       <TableCell>{contact.phone}</TableCell>
                       <TableCell>{contact.company}</TableCell>
                       <TableCell>{contact.notes}</TableCell>
                       <TableCell>
-                        <ButtonDeleteContact id={contact._id || ""} />
+                        <ButtonDeleteContact id={contact._id.toString() || ""} />
                       </TableCell>
                     </TableRow>
                   ))}
