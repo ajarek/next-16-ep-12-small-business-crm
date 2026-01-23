@@ -124,7 +124,7 @@ const ActivitiesPage = async ({
               </span>
             </h2>
             <p className='text-muted-foreground'>
-              A history of your team's engagement.
+              A history of your team&apos;s engagement.
             </p>
           </div>
           <Activity className='w-8 h-8 text-primary opacity-20' />

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { getDealsAll } from "@/lib/action"
 import { DollarSign, Plus } from "lucide-react"
 import Link from "next/link"
-import type { Deal } from "@/types/typeDeal"
+import { IDeal } from "@/types/typeDeal"
 import {
   Table,
   TableBody,
@@ -17,7 +17,7 @@ import ButtonDeleteDeal from "@/components/ButtonDeleteDeal"
 
 const Deals = async ({ searchParams }: { searchParams: { name?: string } }) => {
   const { name = "" } = await searchParams
-  const deals = (await getDealsAll()) || []
+  const deals: IDeal[] = (await getDealsAll()) || []
   return (
     <div className='w-full flex flex-col items-center justify-start p-4 min-h-screen gap-4'>
       <div className='w-full flex items-center justify-between'>
@@ -67,11 +67,11 @@ const Deals = async ({ searchParams }: { searchParams: { name?: string } }) => {
               </TableHeader>
               <TableBody>
                 {deals
-                  .filter((deal: Deal) =>
+                  .filter((deal: IDeal) =>
                     deal.title.toLowerCase().includes(name.toLowerCase()),
                   )
-                  .map((deal: Deal) => (
-                    <TableRow key={deal._id}>
+                  .map((deal: IDeal) => (
+                    <TableRow key={deal._id.toString()}>
                       <TableCell>{deal.title}</TableCell>
                       <TableCell>{deal.contact}</TableCell>
                       <TableCell>${deal.value}</TableCell>
@@ -79,7 +79,7 @@ const Deals = async ({ searchParams }: { searchParams: { name?: string } }) => {
                       <TableCell>{deal.expectedCloseDate}</TableCell>
                       <TableCell>{deal.description}</TableCell>
                       <TableCell>
-                        <ButtonDeleteDeal id={deal._id || ""} />
+                        <ButtonDeleteDeal id={deal._id.toString() || ""} />
                       </TableCell>
                     </TableRow>
                   ))}

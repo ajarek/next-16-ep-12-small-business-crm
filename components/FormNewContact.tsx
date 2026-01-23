@@ -22,6 +22,7 @@ import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { toast } from "sonner"
 import { addContact } from "@/lib/action"
+import { ContactFormData } from "@/types/typeContact"
 
 const formSchema = z.object({
   name: z
@@ -48,7 +49,7 @@ const formSchema = z.object({
 })
 
 export function NewContactForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<ContactFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -59,7 +60,7 @@ export function NewContactForm() {
     },
   })
 
-  async function onSubmit(data: z.infer<typeof formSchema>) {
+  async function onSubmit(data: ContactFormData) {
     toast.success("You submitted the following values:", {
       description: (
         <pre className='bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4'>
